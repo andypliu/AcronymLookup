@@ -1,0 +1,8 @@
+<resources>
+    <string name="app_name">Acronym Lookup</string>
+    <string name="networkError">Oops, network error!</string>
+    <string name="dataError">Oops, data error!</string>
+    <string name="unknownError">Oops, unknown error!</string>
+    <string name="noDefitionFound">No definition found</string>
+    <string name="enterAcronym">Please enter an acronym to continue!</string>
+</resources>
