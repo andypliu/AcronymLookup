@@ -32,8 +32,8 @@ class AcronymFragment : Fragment() {
         super.onViewCreated(view, savedInstanceState)
 
         // observe change on the acronym definitions
-        viewModel.acronyms.observe(viewLifecycleOwner) { acronyms ->
-            acronyms?.apply {
+        viewModel.acronymsDefinitions.observe(viewLifecycleOwner) { acronymDefinitions ->
+            acronymDefinitions?.apply {
                 // update the recycle view adapter when there is update on definitions
                 if (this.isEmpty()) {
                     viewModelAdapter?.definitions = emptyList()

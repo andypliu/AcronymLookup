@@ -2,6 +2,7 @@ package com.albertsons.acronyms.viewmodel
 
 import android.app.Application
 import androidx.lifecycle.*
+import com.albertsons.acronyms.domain.AcronymDefinition
 
 import com.albertsons.acronyms.exception.DataException
 import com.albertsons.acronyms.exception.ExceptionType
@@ -14,12 +15,17 @@ class AcronymViewModel(application: Application) : AndroidViewModel(application)
 
     // Get the repository that store the data
     private val acronymsRepository = AcronymsRepository()
-    val acronyms = acronymsRepository.acronymDefinitions
+
+    // Acronyms definitions
+    private var _acronymsDefinitions = acronymsRepository.acronymDefinitions
+    val acronymsDefinitions: LiveData<List<AcronymDefinition>>
+        get() = _acronymsDefinitions
 
     // Error Event
     private var _eventError = MutableLiveData(ExceptionType.NONE)
     val eventError: LiveData<ExceptionType>
         get() = _eventError
+
     private var _isErrorShown = MutableLiveData(false)
 
     /**
